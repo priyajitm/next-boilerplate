@@ -9,8 +9,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Next Boilerplate",
-  description: "A Next.js boilerplate for building modern web applications.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  title: {
+    default: "Your SaaS App",
+    template: "%s | Your SaaS App",
+  },
 };
 
 export default function RootLayout({
