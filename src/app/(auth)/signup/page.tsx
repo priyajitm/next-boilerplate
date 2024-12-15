@@ -1,3 +1,11 @@
+import {
+  AuthHeader,
+  AuthFooter,
+  OAuthButtons,
+  AuthForm,
+} from "@/app/_components/auth";
+import { OrDivider } from "@/app/_components/orDivider";
+import { signupConfig } from "@/app/_config/auth.config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,5 +13,22 @@ export const metadata: Metadata = {
 };
 
 export default function Signup() {
-  return <div>Signup</div>;
+  return (
+    <div className="flex h-screen w-full flex-col items-center justify-center p-4">
+      <div className="flex w-full max-w-md flex-col gap-6 rounded-lg rounded-b-none border border-gray-200 p-8">
+        <AuthHeader
+          title="Sign Up"
+          description="Please fill in the details to create an account"
+        />
+        <OAuthButtons />
+        {signupConfig.options.showDivider && <OrDivider label="or" />}
+        <AuthForm fields={signupConfig.fields} buttonLabel="Sign Up" />
+      </div>
+      <AuthFooter
+        content="Already have an account?"
+        linkText="Login"
+        linkHref="/login"
+      />
+    </div>
+  );
 }
