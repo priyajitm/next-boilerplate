@@ -1,6 +1,7 @@
 import { signupConfig } from "@/app/_config/auth.config";
 import { OAuthProviders } from "@/app/_config/auth.config";
-import { ButtonWithIcon } from "../../buttonWithIcon";
+import { ButtonWithIcon } from "../../ui/buttonWithIcon";
+
 
 export const OAuthButtons = () => {
   if (!Object.entries(signupConfig.oauth).some(([, enabled]) => enabled)) {

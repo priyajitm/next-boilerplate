@@ -1,5 +1,5 @@
-import { Input } from "@/app/_components/ui/input";
-import { Label } from "@/app/_components/ui/label";
+import { Input } from "@/app/_components/shadcnComponents/input";
+import { Label } from "@/app/_components/shadcnComponents/label";
 
 interface InputWithLabelProps {
   label: string;

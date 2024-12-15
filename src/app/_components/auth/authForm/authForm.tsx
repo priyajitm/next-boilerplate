@@ -1,5 +1,5 @@
-import { InputWithLabel } from "../../inputWithLabel";
-import { Button } from "../../ui/button";
+import { InputWithLabel } from "../../ui/inputWithLabel";
+import { Button } from "../../shadcnComponents/button";
 import { CheckboxWithLabel } from "../../ui/checkboxWithLabel";
 
 interface AuthFormProps {
