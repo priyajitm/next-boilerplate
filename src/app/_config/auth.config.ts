@@ -30,6 +30,7 @@ const baseConfigSchema = z.object({
   fields: z.record(z.boolean()),
   options: z.object({
     showDivider: z.boolean().optional(),
+    showTerms: z.boolean().optional(),
   }),
 });
 
@@ -85,6 +86,7 @@ const baseConfig = baseConfigSchema.parse({
   },
   options: {
     showDivider: true,
+    showTerms: false,
   },
 });
 
@@ -95,6 +97,10 @@ export const signupConfig = signupConfigSchema.parse({
     name: false,
     username: false,
     phone: false,
+  },
+  options: {
+    ...baseConfig.options,
+    showTerms: true,
   },
 });
 

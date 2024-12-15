@@ -22,7 +22,11 @@ export default function Signup() {
         />
         <OAuthButtons />
         {signupConfig.options.showDivider && <OrDivider label="or" />}
-        <AuthForm fields={signupConfig.fields} buttonLabel="Sign Up" />
+        <AuthForm
+          fields={signupConfig.fields}
+          buttonLabel="Sign Up"
+          options={signupConfig.options}
+        />
       </div>
       <AuthFooter
         content="Already have an account?"
