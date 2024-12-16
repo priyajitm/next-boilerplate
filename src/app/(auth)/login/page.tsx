@@ -5,7 +5,11 @@ import {
   AuthForm,
 } from "@/app/_components/auth";
 import { OrDivider } from "@/app/_components/orDivider";
-import { loginConfig } from "@/app/_config/auth.config";
+import {
+  loginConfig,
+  OAuthProviders,
+  signupConfig,
+} from "@/app/_config/auth.config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,7 +24,10 @@ export default function Login() {
           title="Login"
           description="Please fill in the details to login to your account"
         />
-        <OAuthButtons />
+        <OAuthButtons
+          oauthConfig={signupConfig.oauth}
+          providers={OAuthProviders}
+        />
         {loginConfig.options.showDivider && <OrDivider label="or" />}
         <AuthForm fields={loginConfig.fields} buttonLabel="Login" />
       </div>
