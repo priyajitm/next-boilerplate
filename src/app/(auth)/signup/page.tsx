@@ -5,7 +5,7 @@ import {
   AuthForm,
 } from "@/app/_components/auth";
 import { OrDivider } from "@/app/_components/orDivider";
-import { signupConfig } from "@/app/_config/auth.config";
+import { OAuthProviders, signupConfig } from "@/app/_config/auth.config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,7 +20,10 @@ export default function Signup() {
           title="Sign Up"
           description="Please fill in the details to create an account"
         />
-        <OAuthButtons />
+        <OAuthButtons
+          oauthConfig={signupConfig.oauth}
+          providers={OAuthProviders}
+        />
         {signupConfig.options.showDivider && <OrDivider label="or" />}
         <AuthForm
           fields={signupConfig.fields}
