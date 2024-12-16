@@ -1,26 +1,40 @@
-import { signupConfig } from "@/app/_config/auth.config";
-import { OAuthProviders } from "@/app/_config/auth.config";
+import React from "react";
 import { ButtonWithIcon } from "../../ui/buttonWithIcon";
 
+interface OAuthProvider {
+  label: string;
+  icon: React.ComponentType;
+}
+interface OAuthButtonsProps {
+  oauthConfig: Record<string, boolean>;
+  providers: Record<string, OAuthProvider>;
+}
 
-export const OAuthButtons = () => {
-  if (!Object.entries(signupConfig.oauth).some(([, enabled]) => enabled)) {
+export const OAuthButtons = ({ oauthConfig, providers }: OAuthButtonsProps) => {
+  const AuthProviders = Object.entries(oauthConfig).reduce(
+    (acc, [key, enabled]) => {
+      acc[key] = {
+        enabled,
+        provider: providers[key],
+      };
+      return acc;
+    },
+    {} as Record<string, { enabled: boolean; provider: OAuthProvider }>
+  );
+
+  if (Object.entries(AuthProviders).every(([, { enabled }]) => !enabled)) {
     return null;
   }
 
   return (
     <div className="grid grid-cols-[repeat(2,_minmax(0,_1fr))] gap-2">
-      {Object.entries(signupConfig.oauth).map(([provider, enabled]) => {
+      {Object.entries(AuthProviders).map(([key, { enabled, provider }]) => {
         if (!enabled) return null;
-        const ProviderIcon =
-          OAuthProviders[provider as keyof typeof OAuthProviders].icon;
         return (
           <ButtonWithIcon
-            key={provider}
-            icon={<ProviderIcon />}
-            label={
-              OAuthProviders[provider as keyof typeof OAuthProviders].label
-            }
+            key={key}
+            icon={<provider.icon />}
+            label={provider.label}
           />
         );
       })}
