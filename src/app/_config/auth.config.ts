@@ -28,6 +28,15 @@ const baseOAuthConfigSchema = z.object({
 const baseConfigSchema = z.object({
   oauth: baseOAuthConfigSchema,
   fields: z.record(z.boolean()),
+  placeholders: z
+    .object({
+      email: z.string(),
+      password: z.string(),
+      name: z.string(),
+      username: z.string(),
+      phone: z.string(),
+    })
+    .optional(),
   options: z.object({
     showDivider: z.boolean().optional(),
     showTerms: z.boolean().optional(),
@@ -85,6 +94,13 @@ const baseConfig = baseConfigSchema.parse({
     email: true,
     password: true,
   },
+  placeholders: {
+    email: "john@email.com",
+    password: "",
+    name: "John Doe",
+    username: "john_doe",
+    phone: "1234567890",
+  },
   options: {
     showDivider: true,
     showTerms: false,
@@ -99,6 +115,9 @@ export const signupConfig = signupConfigSchema.parse({
     name: false,
     username: false,
     phone: false,
+  },
+  placeholders: {
+    ...baseConfig.placeholders,
   },
   options: {
     ...baseConfig.options,

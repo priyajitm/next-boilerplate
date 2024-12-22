@@ -7,15 +7,27 @@ interface AuthFormProps {
   fields: Record<string, boolean>;
   buttonLabel: string;
   options?: Record<string, boolean>;
+  placeholders?: Record<string, string>;
 }
 
-export const AuthForm = ({ fields, buttonLabel, options }: AuthFormProps) => {
+export const AuthForm = ({
+  fields,
+  buttonLabel,
+  options,
+  placeholders,
+}: AuthFormProps) => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       {Object.entries(fields).map(([field, enabled]) => {
         if (!enabled) return null;
         return (
-          <InputWithLabel key={field} label={field} id={field} type={field} />
+          <InputWithLabel
+            key={field}
+            label={field}
+            id={field}
+            type={field}
+            placeholder={placeholders?.[field]}
+          />
         );
       })}
       {options?.showTerms && (

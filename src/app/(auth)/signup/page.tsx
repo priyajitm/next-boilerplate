@@ -29,6 +29,7 @@ export default function Signup() {
           fields={signupConfig.fields}
           buttonLabel="Sign Up"
           options={signupConfig.options}
+          placeholders={signupConfig.placeholders}
         />
       </div>
       <AuthFooter

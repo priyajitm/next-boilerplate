@@ -33,6 +33,7 @@ export default function Login() {
           fields={loginConfig.fields}
           options={loginConfig.options}
           buttonLabel="Login"
+          placeholders={loginConfig.placeholders}
         />
       </div>
       <AuthFooter
