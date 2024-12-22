@@ -1,6 +1,7 @@
 import { InputWithLabel } from "../../ui/inputWithLabel";
 import { Button } from "../../shadcnComponents/button";
 import { CheckboxWithLabel } from "../../ui/checkboxWithLabel";
+import Link from "next/link";
 
 interface AuthFormProps {
   fields: Record<string, boolean>;
@@ -24,6 +25,11 @@ export const AuthForm = ({ fields, buttonLabel, options }: AuthFormProps) => {
         />
       )}
       <Button className="w-full">{buttonLabel}</Button>
+      {options?.showForgotPassword && (
+        <p className="text-center text-sm">
+          <Link href="/forgot-password">Forgot your password?</Link>
+        </p>
+      )}
     </div>
   );
 };

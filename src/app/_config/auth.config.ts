@@ -31,6 +31,7 @@ const baseConfigSchema = z.object({
   options: z.object({
     showDivider: z.boolean().optional(),
     showTerms: z.boolean().optional(),
+    showForgotPassword: z.boolean().optional(),
   }),
 });
 
@@ -87,6 +88,7 @@ const baseConfig = baseConfigSchema.parse({
   options: {
     showDivider: true,
     showTerms: false,
+    showForgotPassword: false,
   },
 });
 
@@ -106,4 +108,8 @@ export const signupConfig = signupConfigSchema.parse({
 
 export const loginConfig = baseConfigSchema.parse({
   ...baseConfig,
+  options: {
+    ...baseConfig.options,
+    showForgotPassword: true,
+  },
 });

@@ -29,7 +29,11 @@ export default function Login() {
           providers={OAuthProviders}
         />
         {loginConfig.options.showDivider && <OrDivider label="or" />}
-        <AuthForm fields={loginConfig.fields} buttonLabel="Login" />
+        <AuthForm
+          fields={loginConfig.fields}
+          options={loginConfig.options}
+          buttonLabel="Login"
+        />
       </div>
       <AuthFooter
         content="Already have an account?"
