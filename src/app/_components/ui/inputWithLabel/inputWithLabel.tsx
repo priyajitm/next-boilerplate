@@ -15,7 +15,7 @@ export const InputWithLabel = ({
   placeholder,
 }: InputWithLabelProps) => {
   return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className="grid w-full max-w-sm items-center gap-4">
       <Label htmlFor={id}>{label}</Label>
       <Input type={type} id={id} placeholder={placeholder} />
     </div>
