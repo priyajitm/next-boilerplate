@@ -11,7 +11,7 @@ describe("OrDivider", () => {
 
   it("renders divider lines", () => {
     const { container } = render(<OrDivider label="or" />);
-    const dividers = container.getElementsByClassName("bg-gray-200");
+    const dividers = container.querySelectorAll("[data-testid='divider']");
     expect(dividers).toHaveLength(2);
   });
 });
