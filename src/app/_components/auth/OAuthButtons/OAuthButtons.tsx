@@ -35,6 +35,7 @@ export const OAuthButtons = ({ oauthConfig, providers }: OAuthButtonsProps) => {
             key={key}
             icon={<provider.icon />}
             label={provider.label}
+            variant="outline"
           />
         );
       })}
