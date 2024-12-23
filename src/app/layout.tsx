@@ -1,7 +1,10 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/_styles/globals.css";
 import { ThemeProvider } from "./_styles/themeProvider";
+import { LanguageProvider } from "./_contexts/languageContext";
+import { I18nProvider } from "./_providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,14 +31,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <LanguageProvider>
+          <I18nProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </I18nProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
