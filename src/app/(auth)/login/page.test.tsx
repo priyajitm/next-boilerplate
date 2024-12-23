@@ -1,17 +1,28 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
+import { fireEvent, screen } from "@testing-library/react";
 import Login from "./page";
-import { loginConfig, OAuthProviders } from "@/app/_config/auth.config";
+import {
+  loginConfig,
+  OAuthProviders,
+  signupConfig,
+} from "@/app/_config/auth.config";
+import { renderWithProviders } from "@/app/_config/testWrapper";
+
+jest.mock("next-intl", () => ({
+  useTranslations: () => (key: string) => key,
+  Link: ({ children }: { children: React.ReactNode }) => children,
+  NextIntlClientProvider: ({ children }: { children: React.ReactNode }) =>
+    children,
+}));
 
 describe("Login Page", () => {
   it("renders all main components correctly", () => {
-    render(<Login />);
+    renderWithProviders(<Login />);
 
-    expect(screen.getByText("Login", { selector: "p" })).toBeInTheDocument();
-    expect(
-      screen.getByText("Please fill in the details to login to your account")
-    ).toBeInTheDocument();
+    expect(screen.getByText("title", { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByText("description")).toBeInTheDocument();
 
-    Object.entries(loginConfig.oauth)
+    Object.entries(signupConfig.oauth)
       .filter(([, enabled]) => enabled)
       .forEach(([provider]) => {
         expect(
@@ -24,22 +35,26 @@ describe("Login Page", () => {
     }
 
     Object.entries(loginConfig.fields).forEach(([fieldName]) => {
-      expect(screen.getByLabelText(fieldName)).toBeInTheDocument();
+      expect(
+        screen.getByLabelText(
+          fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
+        )
+      ).toBeInTheDocument();
     });
 
-    expect(screen.getByRole("button", { name: /login/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "button" })).toBeInTheDocument();
 
-    expect(screen.getByText("Already have an account?")).toBeInTheDocument();
-    expect(screen.getByText("Sign Up")).toBeInTheDocument();
+    expect(screen.getByText("noAccount")).toBeInTheDocument();
+    expect(screen.getByText("signupLink")).toBeInTheDocument();
   });
 
   it("renders signup page when clicking signup link", () => {
-    render(<Login />);
+    renderWithProviders(<Login />);
 
-    const signupLink = screen.getByText("Sign Up");
+    const signupLink = screen.getByText("signupLink");
     fireEvent.click(signupLink);
 
-    expect(screen.getByText("Sign Up")).toBeInTheDocument();
+    expect(screen.getByText("signupLink")).toBeInTheDocument();
   });
 
   /* 

@@ -1,3 +1,4 @@
+"use client";
 import {
   AuthHeader,
   AuthFooter,
@@ -5,40 +6,39 @@ import {
   AuthForm,
 } from "@/app/_components/auth";
 import { OrDivider } from "@/app/_components/orDivider";
+import { LanguageSwitcher } from "@/app/_components/ui/languageSwitcher";
 import {
   loginConfig,
   OAuthProviders,
   signupConfig,
 } from "@/app/_config/auth.config";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Login",
-};
+import { useTranslations } from "next-intl";
 
 export default function Login() {
+  const t = useTranslations("auth.login");
+  const tCommon = useTranslations("common");
+
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center bg-background p-4">
+      <LanguageSwitcher />
       <div className="flex w-full max-w-md flex-col gap-6 rounded-lg rounded-b-none border border-gray-200 bg-background p-8 dark:border-gray-900">
-        <AuthHeader
-          title="Login"
-          description="Please fill in the details to login to your account"
-        />
+        <AuthHeader title={t("title")} description={t("description")} />
         <OAuthButtons
           oauthConfig={signupConfig.oauth}
           providers={OAuthProviders}
         />
-        {loginConfig.options.showDivider && <OrDivider label="or" />}
+        {loginConfig.options.showDivider && <OrDivider label={tCommon("or")} />}
         <AuthForm
           fields={loginConfig.fields}
           options={loginConfig.options}
-          buttonLabel="Login"
+          buttonLabel={t("button")}
           placeholders={loginConfig.placeholders}
+          labels={loginConfig.labels}
         />
       </div>
       <AuthFooter
-        content="Already have an account?"
-        linkText="Sign Up"
+        content={t("noAccount")}
+        linkText={t("signupLink")}
         linkHref="/signup"
       />
     </div>
