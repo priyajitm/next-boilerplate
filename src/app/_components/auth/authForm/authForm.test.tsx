@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { AuthForm } from "./authForm";
+import { renderWithProviders } from "@/app/_config/testWrapper";
 
 describe("AuthForm", () => {
   const mockFields = {
@@ -8,20 +9,41 @@ describe("AuthForm", () => {
     name: false,
   };
 
-  it("renders enabled fields only", () => {
-    render(<AuthForm fields={mockFields} buttonLabel="Submit" />);
+  const mockLabels = {
+    email: {
+      en: "Email",
+      es: "Correo",
+      fr: "E-mail",
+    },
+    password: {
+      en: "Password",
+      es: "Contraseña",
+      fr: "Mot de passe",
+    },
+    name: {
+      en: "Name",
+      es: "Nombre",
+      fr: "Nom",
+    },
+  };
 
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
-    expect(screen.queryByLabelText(/name/i)).not.toBeInTheDocument();
+  it("renders enabled fields only", () => {
+    renderWithProviders(
+      <AuthForm fields={mockFields} buttonLabel="Submit" labels={mockLabels} />
+    );
+
+    expect(screen.getByLabelText("Email")).toBeInTheDocument();
+    expect(screen.getByLabelText("Password")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Name")).not.toBeInTheDocument();
   });
 
   it("renders terms checkbox when showTerms is true", () => {
-    render(
+    renderWithProviders(
       <AuthForm
         fields={mockFields}
         buttonLabel="Submit"
         options={{ showTerms: true }}
+        labels={mockLabels}
       />
     );
 
@@ -29,7 +51,9 @@ describe("AuthForm", () => {
   });
 
   it("renders submit button with correct label", () => {
-    render(<AuthForm fields={mockFields} buttonLabel="Sign Up" />);
+    renderWithProviders(
+      <AuthForm fields={mockFields} buttonLabel="Sign Up" labels={mockLabels} />
+    );
     expect(
       screen.getByRole("button", { name: /sign up/i })
     ).toBeInTheDocument();
