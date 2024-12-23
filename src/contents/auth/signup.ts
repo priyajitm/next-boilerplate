@@ -1,0 +1,47 @@
+export const signupContent = {
+  en: {
+    title: "Sign Up",
+    description: "Please fill in the details to create an account",
+    button: "Sign Up",
+    haveAccount: "Already have an account?",
+    loginLink: "Login",
+    fields: {
+      email: "Email",
+      password: "Password",
+      name: "Name",
+      username: "Username",
+      phone: "Phone",
+    },
+    terms: "I agree to the terms and conditions",
+  },
+  es: {
+    title: "Registrarse",
+    description: "Complete los detalles para crear una cuenta",
+    button: "Registrarse",
+    haveAccount: "¿Ya tienes una cuenta?",
+    loginLink: "Iniciar Sesión",
+    fields: {
+      email: "Correo",
+      password: "Contraseña",
+      name: "Nombre",
+      username: "Nombre de usuario",
+      phone: "Teléfono",
+    },
+    terms: "Acepto los términos y condiciones",
+  },
+  fr: {
+    title: "S'inscrire",
+    description: "Veuillez remplir les détails pour créer un compte",
+    button: "S'inscrire",
+    haveAccount: "Vous avez déjà un compte?",
+    loginLink: "Se Connecter",
+    fields: {
+      email: "Email",
+      password: "Mot de passe",
+      name: "Nom",
+      username: "Nom d'utilisateur",
+      phone: "Téléphone",
+    },
+    terms: "J'accepte les termes et conditions",
+  },
+};
