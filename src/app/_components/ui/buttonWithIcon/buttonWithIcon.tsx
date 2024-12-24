@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../shadcnComponents/button";
+import { Button } from "../../shadcn/button";
 
 type ButtonVariant =
   | "default"
@@ -12,7 +12,7 @@ type ButtonVariant =
 interface ButtonWithIconProps {
   icon: React.ReactNode;
   label: string;
-  variant: ButtonVariant;
+  variant?: ButtonVariant;
 }
 
 export const ButtonWithIcon = ({

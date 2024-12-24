@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ButtonWithIcon } from "./buttonWithIcon";
+import { ButtonWithIcon } from "./ButtonWithIcon";
 
 describe("ButtonWithIcon", () => {
   it("renders with correct label", () => {

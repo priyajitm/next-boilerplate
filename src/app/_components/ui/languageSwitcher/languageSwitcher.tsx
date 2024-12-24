@@ -7,8 +7,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../shadcnComponents/dropdown-menu";
-import { Button } from "../../shadcnComponents/button";
+} from "../../shadcn/dropdown-menu";
+import { Button } from "../../shadcn/button";
 
 const locales = [
   { code: "en", label: "English" },

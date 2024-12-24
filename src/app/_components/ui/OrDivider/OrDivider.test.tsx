@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { OrDivider } from "./orDivider";
+import { OrDivider } from "./OrDivider";
 
 describe("OrDivider", () => {
   it("renders with the correct label", () => {

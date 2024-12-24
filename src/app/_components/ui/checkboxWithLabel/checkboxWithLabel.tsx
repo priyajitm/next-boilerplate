@@ -1,4 +1,4 @@
-import { Checkbox } from "../../shadcnComponents/checkbox";
+import { Checkbox } from "../../shadcn/checkbox";
 
 interface CheckboxWithLabelProps {
   label: string;

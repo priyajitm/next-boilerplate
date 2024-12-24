@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { AuthFooter } from "./authFooter";
+import { AuthFooter } from "./AuthFooter";
 
 describe("AuthFooter", () => {
   it("renders with correct content and link", () => {

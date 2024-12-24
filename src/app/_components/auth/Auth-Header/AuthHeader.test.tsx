@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { AuthHeader } from "./authHeader";
+import { AuthHeader } from "./AuthHeader";
 
 describe("AuthHeader", () => {
   it("renders with correct title and description", () => {

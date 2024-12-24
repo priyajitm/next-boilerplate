@@ -4,8 +4,8 @@ import {
   AuthFooter,
   OAuthButtons,
   AuthForm,
-} from "@/app/_components/auth";
-import { OrDivider } from "@/app/_components/orDivider";
+} from "@/app/_components/Auth";
+import { OrDivider } from "@/app/_components/ui";
 import { OAuthProviders, signupConfig } from "@/app/_config/auth.config";
 import { useTranslations } from "next-intl";
 

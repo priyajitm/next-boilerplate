@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { AuthForm } from "./authForm";
+import { AuthForm } from "./AuthForm";
 import { renderWithProviders } from "@/app/_config/testWrapper";
 
 describe("AuthForm", () => {

@@ -1,7 +1,6 @@
 "use client";
-import { AuthFooter } from "@/app/_components/auth/authFooter";
-import { AuthForm } from "@/app/_components/auth/authForm";
-import { AuthHeader } from "@/app/_components/auth/authHeader";
+
+import { AuthFooter, AuthForm, AuthHeader } from "@/app/_components/Auth";
 import { resetPasswordConfig } from "@/app/_config/auth.config";
 import { useTranslations } from "next-intl";
 

@@ -4,9 +4,8 @@ import {
   AuthFooter,
   OAuthButtons,
   AuthForm,
-} from "@/app/_components/auth";
-import { OrDivider } from "@/app/_components/orDivider";
-import { LanguageSwitcher } from "@/app/_components/ui/languageSwitcher";
+} from "@/app/_components/Auth";
+import { OrDivider, LanguageSwitcher } from "@/app/_components/ui";
 import {
   loginConfig,
   OAuthProviders,

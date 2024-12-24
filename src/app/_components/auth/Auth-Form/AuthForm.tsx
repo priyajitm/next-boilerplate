@@ -1,8 +1,7 @@
-import { InputWithLabel } from "../../ui/inputWithLabel";
-import { Button } from "../../shadcnComponents/button";
-import { CheckboxWithLabel } from "../../ui/checkboxWithLabel";
+import { InputWithLabel, CheckboxWithLabel } from "@/app/_components/ui";
+import { Button } from "@/app/_components/shadcn/button";
 import Link from "next/link";
-import { useLanguage } from "@/app/_contexts/languageContext";
+import { useLanguage } from "@/app/_contexts/";
 import { useTranslations } from "next-intl";
 
 interface AuthFormProps {

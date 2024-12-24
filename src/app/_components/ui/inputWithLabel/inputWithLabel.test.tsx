@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { InputWithLabel } from "./inputWithLabel";
+import { InputWithLabel } from "./InputWithLabel";
 
 describe("InputWithLabel", () => {
   it("renders with correct label", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonWithIcon } from "../../ui/buttonWithIcon";
+import { ButtonWithIcon } from "@/app/_components/ui";
 
 interface OAuthProvider {
   label: string;

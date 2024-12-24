@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { CheckboxWithLabel } from "./checkboxWithLabel";
+import { CheckboxWithLabel } from "./CheckboxWithLabel";
 
 describe("CheckboxWithLabel", () => {
   it("renders with correct label", () => {
